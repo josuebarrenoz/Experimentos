@@ -6,8 +6,6 @@ def conversor(tipo_pesos,valor_dolar):
     dolares =str(dolares)
     print("Tienes $ "+dolares+" dólares")
 
-
-
 menu = """
 Bienvenido al conversor de monedas 
 
@@ -31,10 +29,6 @@ elif opcion ==4:
     conversor("pesos mexicanos",24)
 else:
     print(" Ingresa una opción correcta por favor")
-
-
-
-
 
 
 
