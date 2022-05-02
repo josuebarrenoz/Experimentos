@@ -12,7 +12,7 @@ def conversacion(mensaje):
   else:
     return 0
 
-def quien_gano(oponente, ususario):
+def quien_gano(oponente, usuario):
   if oponente == 1 and usuario == 2:
     return 'YASSSSS GANASTEEEEE 🎉🎉'
   elif oponente == 2 and usuario == 1:
@@ -33,7 +33,9 @@ def quien_gano(oponente, ususario):
     return 'Error???????'
 
 def seguir_jugando(respuesta):
-  if respuesta == 'si':
+  if respuesta == 'N':
+    return False
+  elif respuesta != "n":
     return True
   else:
     return False
@@ -92,11 +94,16 @@ ________________________________________________
 
 """
 
+Espacio="""
+"""
+
 print(bienvenida)
 
 while is_game:
   oponente = random.randint(1,3)
-  usuario = conversacion(input('Piedra, papel o tije...'))
-
+  print(Espacio)
+  usuario = conversacion(input('Piedra, papel o tijera: '))
+  print(Espacio)
   print(quien_gano(oponente, usuario))
-  is_game = seguir_jugando(input('Quieres seguir jugando? ')) 
+  print(Espacio)
+  is_game = seguir_jugando(input('Quieres seguir jugando? (S/N) ')) 
