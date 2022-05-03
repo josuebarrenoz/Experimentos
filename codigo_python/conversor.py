@@ -1,3 +1,18 @@
+menu = """Bienvenido al conversor de monedas
+
+Ingresa el indice de la moneda que quieres convertir a  dolares, euros o bitcoin:
+            
+            [1] Moneda venezolana
+            [2] Moneda colombiana 
+            [3] Moneda argentida 
+            [4] Moneda mexicana 
+
+Selecciona: """
+
+
+is_game = True
+
+
 #Declaracion de valores
 valor_dolar1 = 4.48071
 valor_euro1 = 4.72458
@@ -12,71 +27,75 @@ valor_dolar4 = 20.4
 valor_euro4 = 21.47
 valor_btc4 = 792178.24
 
-def exchanges(moneda,cantidad):
-    result = 0
-    # Moneda venezolana
-    if moneda == 1:
-        result = round (cantidad / valor_dolar1,2)
-        result1 = round(cantidad / valor_euro1,2)
-        result2 = round(cantidad / valor_btc1,9)
-        print(f' ')
-        print(f'Los {cantidad} Bolivares equivalen a:')
-        print(f' ')
-        print(f'{result} dolares')
-        print(f'{result1} euros')
-        print(f'{result2} bitcoin')
-    # Moneda colombiana
-    elif moneda == 2:
-        result = round (cantidad / valor_dolar2,2)
-        result1 = round(cantidad / valor_euro2,2)
-        result2 = round(cantidad / valor_btc2,9)
-        print(f' ')
-        print(f'Los {cantidad} pesos colombianos equivalen a:')
-        print(f' ')
-        print(f'{result} dolares')
-        print(f'{result1} euros')
-        print(f'{result2} bitcoin')
-    # Moneda Argentina
-    elif moneda == 3:
-        result = round (cantidad / valor_dolar3,2)
-        result1 = round(cantidad / valor_euro3,2)
-        result2 = round(cantidad / valor_btc3,9)
-        print(f' ')
-        print(f'Los {cantidad} pesos argentinos equivalen a:')
-        print(f' ')
-        print(f'{result} dolares')
-        print(f'{result1} euros')
-        print(f'{result2} bitcoin')
-    # Moneda mexicana
-    elif moneda == 4:
-        result = round (cantidad / valor_dolar4,2)
-        result1 = round(cantidad / valor_euro4,2)
-        result2 = round(cantidad / valor_btc4,9)
-        print(f' ')
-        print(f'Los {cantidad} pesos mexicanos equivalen a:')
-        print(f' ')
-        print(f'{result} dolares')
-        print(f'{result1} euros')
-        print(f'{result2} bitcoin')
-    # Otro
+
+def seguir_jugando(respuesta):
+  if respuesta == 'N':
+    return False
+  elif respuesta != "n":
+    return True
+  else:
+    return False
+
+
+def codigo(opcion):
+    if opcion ==1:
+        return conversor("Bolivares",valor_dolar1,valor_euro1,valor_btc1)
+    elif opcion ==2:
+        return conversor("pesos colombianos",valor_dolar2,valor_euro2,valor_btc2)
+    elif opcion ==3:
+        return conversor("pesos argentinos",valor_dolar3,valor_euro3,valor_btc3)    
+    elif opcion ==4:
+        return conversor("pesos mexicanos",valor_dolar4,valor_euro4,valor_btc4)
     else:
         print(f' ')
-        print('Ingresa solo un numero de la lista')
+        print('* * * * * * E R R O R * * * * * *')
+        print('Por favor, Ingresa solo valores validos')
+
+
+def conversor(tipo_pesos,valor_dolar,valor_euro,valor_btc):
+    print(f' ')
+    print('*****************************************')
+    cantidad = float(input("""Ingresa la cantidad que quieres convertir: """))
+    print('*****************************************')
+    result1 = round(cantidad / valor_dolar,2)
+    result2 = round(cantidad / valor_euro,2)
+    result3 = round(cantidad / valor_btc,9)
+    print(f' ')
+    print(f'Los {cantidad} {tipo_pesos} equivalen a:')
+    print(f' ')
+    print(f'{result1} dolares')
+    print(f'{result2} euros')
+    print(f'{result3} bitcoin')
+    print(f' ')
+    print('*****************************************')
+    print(f' ')
 
 
 if __name__ == '__main__':
-    try:
-        moneda = int(input('''
-        Ingresa el indice de la moneda que quieres convertir a  dolares, euros o bitcoin:
-            [1] Moneda venezolana
-            [2] Moneda colombiana 
-            [3] Moneda argentida 
-            [4] Moneda mexicana 
-        Selecciona: '''))
-        print('********************************')
-        cantidad = int(input('Ingresa la cantidad que quieres convertir: '))
-        exchanges(moneda,cantidad)
-    except:
-        print(f' ')
-        print('* * * * * * E R R O R * * * * * *')
-        print('Por favor, Ingresa solo valores numericos')
+    while is_game:
+        opcion = int(input(menu))
+        codigo(opcion)
+        is_game = seguir_jugando(input("""Quieres seguir? (S/N): """))
+else:
+    print(f' ')
+    print('* * * * * * E R R O R * * * * * *')
+    print('Por favor, Ingresa solo valores numericos')
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
