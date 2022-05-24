@@ -5,6 +5,11 @@ class Main {
         uberx.setPassenger( 4);
         uberx.printDataCar();
 
+        UberVan ubervan = new UberVan("FGH345",new Account("Andres Herrera","AND123","",""));
+        ubervan.setPassenger(6);
+        ubervan.printDataCar();
+
+
         /*Car car2 = new Car("QWE567",new Account("Andrea Herrera","ANDA876","",""));
         car2.passegenger = 3;
         car2.printDataCar();*/
