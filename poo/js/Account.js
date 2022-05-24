@@ -1,8 +1,8 @@
-function Account(name, document) {
+function Account(name, document,email,password) {
     this.id;
     this.name = name;
     this.document = document;
-    this.email;
-    this.password;
+    this.email = email;
+    this.password = password;
 
 }
