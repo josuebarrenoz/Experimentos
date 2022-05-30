@@ -1,6 +1,3 @@
-from re import L
-
-
 def run(a,b):
     l = [i for i in range(a+1) if i%b ==0]
     print(l)
